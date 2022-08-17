@@ -31,6 +31,7 @@ public class SparkCsvGenerator extends QueryGenerator {
             + "            .option(\"header\", \"true\")\n"
             + "            .option(\"inferSchema\", \"true\")\n"
             + "            .option(\"delimiter\", \",\")\n"
+            + "            .option(\"timestampFormat\", \"yyyy/MM/dd HH:mm:ss ZZ\")\n"
             + "            .csv(\"" + StringEscapeUtils.escapeJava(properties.getProperty("directory")) + "\")\n"
             + "            .toDF()\n"
             + "            .createOrReplaceTempView(\"" + properties.getProperty("tableName") + "\");\n"

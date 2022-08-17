@@ -57,8 +57,7 @@
         <elasticsearch.version>6.2.4</elasticsearch.version>
         <esri-geometry-api.version>2.2.0</esri-geometry-api.version>
         <findbugs.version>3.0.1</findbugs.version>
-        <drill-fmpp-maven-plugin.version>1.14.0
-        </drill-fmpp-maven-plugin.version>
+        <drill-fmpp-maven-plugin.version>1.14.0</drill-fmpp-maven-plugin.version>
         <foodmart-data-hsqldb.version>0.3</foodmart-data-hsqldb.version>
         <foodmart-queries.version>0.4.1</foodmart-queries.version>
         <forbiddenapis.version>2.6</forbiddenapis.version>
@@ -339,7 +338,7 @@
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-client</artifactId>
                 <version>${hadoop.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -512,13 +511,99 @@
                 <artifactId>commons-exec</artifactId>
                 <version>1.3</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-cbor</artifactId>
+                <version>2.8.10</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-smile -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-smile</artifactId>
+                <version>2.8.10</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <version>9.2.19.v20160908</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-io</artifactId>
+                <version>9.2.19.v20160908</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-security -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <version>9.2.19.v20160908</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
+            <dependency>
+                <groupId>commons-cli</groupId>
+                <artifactId>commons-cli</artifactId>
+                <version>${commons-cli.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.calcite.avatica/avatica-metrics -->
+            <dependency>
+                <groupId>org.apache.calcite.avatica</groupId>
+                <artifactId>avatica-metrics</artifactId>
+                <version>${avatica.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>10.10.2.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.picadoh/imc -->
+            <dependency>
+                <groupId>com.github.picadoh</groupId>
+                <artifactId>imc</artifactId>
+                <version>${imc.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-client -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>6.2.4</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpasyncclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpasyncclient</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore-nio -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore-nio</artifactId>
+                <version>4.4.5</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-spark-20 -->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch-spark-20_2.11</artifactId>
+                <version>6.2.4</version>
+            </dependency>
+
+
 
             <!-- spark -->
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-core_${scala.version}</artifactId>
                 <version>${spark.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
                 <exclusions>
                     <exclusion>
                         <artifactId>io.netty</artifactId>
@@ -530,19 +615,19 @@
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-sql_${scala.version}</artifactId>
                 <version>${spark.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-streaming_${scala.version}</artifactId>
                 <version>${spark.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-hive_${scala.version}</artifactId>
                 <version>${spark.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
                 <exclusions>
                     <exclusion>
                         <artifactId>calcite-avatica</artifactId>
@@ -554,67 +639,73 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
 
             <!-- flink -->
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-java</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-streaming-java_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-streaming-scala_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-api-java-bridge_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-planner_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-api-scala-bridge_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-common</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-clients_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-elasticsearch6 -->
             <dependency>
                 <groupId>org.apache.flink</groupId>
-                <artifactId>flink-connector-elasticsearch5_2.11</artifactId>
-                <version>${flink.version}</version>
-                <scope>provided</scope>
+                <artifactId>flink-connector-elasticsearch6_2.11</artifactId>
+                <version>1.9.1</version>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-connector-hive_${scala.version}</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -679,6 +770,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <id>analyze</id>
@@ -694,6 +788,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
+
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -819,6 +914,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.2.0</version>
                     <!-- This is the configuration used by "mvn javadoc:javadoc". It is
                          configured strict, so that it shows errors such as broken links in
                          javadoc on private methods. The configuration for "mvn site" is
@@ -845,13 +941,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
                     <configuration>
                         <archive>
                             <manifest>
-                                <addDefaultSpecificationEntries>true
-                                </addDefaultSpecificationEntries>
-                                <addDefaultImplementationEntries>true
-                                </addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             </manifest>
                         </archive>
                     </configuration>
@@ -859,10 +954,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.2.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M2</version>
                     <configuration>
                         <threadCount>${surefire.threadCount}</threadCount>
                         <perCoreThreadCount>${surefire.perCoreThreadCount}
@@ -903,6 +1000,22 @@
                     <artifactId>git-commit-id-plugin</artifactId>
                     <version>${git-commit-id-plugin.version}</version>
                 </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-remote-resources-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-remote-resources-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.drill.tools</groupId>
+                    <artifactId>drill-fmpp-maven-plugin</artifactId>
+                    <version>1.17.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>net.hydromatic</groupId>
+                    <artifactId>hydromatic-resource-maven-plugin</artifactId>
+                    <version>0.6</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -921,7 +1034,7 @@
         <repository>
             <id>central</id>
             <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
+            <url>https://maven.aliyun.com/repository/central</url>
             <layout>default</layout>
             <snapshots>
                 <enabled>false</enabled>
@@ -929,9 +1042,39 @@
         </repository>
 
         <repository>
-            <id>spring plugins</id>
-            <name>Spring Plugins Repository</name>
-            <url>https://repo.spring.io/plugins-release/</url>
+            <id>public</id>
+            <name>Public Repository</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+
+        <repository>
+            <id>google</id>
+            <name>Google Repository</name>
+            <url>https://maven.aliyun.com/repository/google</url>
+        </repository>
+
+        <repository>
+            <id>apache</id>
+            <name>Apache Repository</name>
+            <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+        </repository>
+
+        <repository>
+            <id>spring</id>
+            <name>Spring Repository</name>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </repository>
+
+        <repository>
+            <id>spring plugin</id>
+            <name>Spring Plugin Repository</name>
+            <url>https://maven.aliyun.com/repository/spring-plugin</url>
+        </repository>
+
+        <repository>
+            <id>maven plugin</id>
+            <name>Maven Plugin Repository</name>
+            <url>https://mvnrepository.com/artifact/</url>
         </repository>
     </repositories>
 
@@ -944,6 +1087,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
+                        <version>2.5</version>
                         <executions>
                             <execution>
                                 <id>source-release-assembly</id>
